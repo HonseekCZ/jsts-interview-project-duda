@@ -1,8 +1,16 @@
 import React, { FC } from 'react';
+import Header from '../components/Header';
+import UserSetter from '../components/UserSetter';
+import Container from '@material-ui/core/Container';
 
-import UserSetter from '../components/UserSetter'
-
-// Homepage is out tic-tac-toc game
-const Home: FC = () => <UserSetter />;
+const Home: FC = () => {
+return (
+    <>
+        <Header />
+        <Container maxWidth="md">
+            <UserSetter />
+        </Container>
+    </>
+)};
 
 export default Home;

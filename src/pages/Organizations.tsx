@@ -6,13 +6,17 @@ import OrgComponent from '../components/OrgComponent'
 import UserInfoComponent from '../components/UserInfoComponent'
 
 import {
+    Box,
     Card, 
-    CardContent, 
+    CardContent,
+    Container, 
     Grid,
     List,
     Typography,
     CircularProgress,
 } from "@material-ui/core";
+
+import Header from '../components/Header';
 
 const Organizations: FC = () => {
     const { username } = useParams<UserParams>();
@@ -33,37 +37,46 @@ const Organizations: FC = () => {
     }, [username]);
 
     return (
-        <Grid container wrap="wrap" spacing={3}>
-            <Grid item xs={12}>
-                <Typography variant="h3" gutterBottom>
-                    User Information
-                </Typography>
-            </Grid>            
-            <Grid item xs={12}>
-                {userInfo === undefined ? (
-                    <CircularProgress />
-                ) : (
-                    <>
-                        <UserInfoComponent {...userInfo} />
-                        {orgs.length > 0 ? (
-                            <Card>
-                                <CardContent>
-                                    <Typography variant="subtitle1" paragraph>
-                                        <b>Part of organizations:</b>
-                                    </Typography>
-                                    <List>
-                                        {orgs.map((org, i) => (
-                                            <OrgComponent {...org} key={i} />
-                                        ))}
-                                    </List>
-                                </CardContent>
-                            </Card>                   
-                        ) : ('')
-                        }
-                    </>
-                )}
-            </Grid>      
-        </Grid>
+        <>
+            <Header />
+            <Container maxWidth="md">
+                <Grid container wrap="wrap" spacing={3}>
+                    <Grid item xs={12}>
+                        <Box m={3}>
+                            <Typography variant="h4" gutterBottom>
+                                <b>User Information</b>
+                            </Typography>
+                        </Box>
+                    </Grid>            
+                    <Grid item xs={12}>
+                        {userInfo === undefined ? (
+                            <CircularProgress />
+                        ) : (
+                            <>
+                                <UserInfoComponent {...userInfo} />
+                                {orgs.length > 0 ? (
+                                    <Box my={3}>
+                                        <Card style={{backgroundColor: "lightgrey"}}>
+                                            <CardContent>
+                                                <Typography variant="h6" paragraph>
+                                                    <b>Part of organizations:</b>
+                                                </Typography>
+                                                <List>
+                                                    {orgs.map((org, i) => (
+                                                        <OrgComponent {...org} key={i} />
+                                                    ))}
+                                                </List>
+                                            </CardContent>
+                                        </Card>
+                                    </Box>                   
+                                ) : ('')
+                                }
+                            </>
+                        )}
+                    </Grid>      
+                </Grid>
+            </Container>
+        </>
     );
 };
 

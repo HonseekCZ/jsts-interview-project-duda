@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 const NotFound: FC = () => {
   return <h2>Not found</h2>;

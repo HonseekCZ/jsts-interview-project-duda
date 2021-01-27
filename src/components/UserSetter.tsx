@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import Card from '@material-ui/core/Card';
@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
 
 const Login: FC = () => {
   const [username, setUsername] = useState('');
@@ -18,35 +18,37 @@ const Login: FC = () => {
   }
 
   return (
-      <Card>
-        <CardContent>
-          <Typography variant="h5" component="h1">
-            Github User Info
-          </Typography>
-          <Typography variant="subtitle1">Enter username of Github account</Typography>
-          <TextField
-            label="Username"
-            name="Username"
-            fullWidth
-            margin="normal"
-            variant="outlined"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-          />
-        </CardContent>
-        <CardActions style={{justifyContent: 'center'}}>
-          <Button
-            variant="text"
-            size="large"
-            color="primary"
-            onClick={() => 
-              setUser(username)            
-            }            
-          >
-            Submit
-          </Button>
-        </CardActions>
-      </Card>
+      <Box m={3}>
+        <Card style={{backgroundColor: "lightgrey"}}>
+          <CardContent>
+            <Typography variant="h5" component="h1">
+              Github User Info
+            </Typography>
+            <Typography variant="subtitle1">Enter username of Github account</Typography>
+            <TextField
+              label="Username"
+              name="Username"
+              fullWidth
+              margin="normal"
+              variant="outlined"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+            />
+          </CardContent>
+          <CardActions style={{justifyContent: 'center'}}>
+            <Button
+              variant="text"
+              size="large"
+              color="primary"
+              onClick={() => 
+                setUser(username)            
+              }            
+            >
+              Submit
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
   );
 };
 

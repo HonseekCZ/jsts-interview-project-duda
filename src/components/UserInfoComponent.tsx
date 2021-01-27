@@ -27,19 +27,19 @@ const UserInfoComponent: FC<UserInfo> = ({ login, name, company, created_at, pub
 
     return (
         <TableContainer component={Paper}>
-            <Table size="small" aria-label="a dense table">
+            <Table size="small" aria-label="a dense table" style={{backgroundColor: "lightgrey"}}>
                 <TableBody>
                     {rows.map((row) => (
                         <TableRow key={row.name}>
                             <TableCell component="th" scope="row">
-                                {row.name}
+                                <b>{row.name}</b>
                             </TableCell>
                             <TableCell align="right">{row.value}</TableCell>
                         </TableRow>
                     ))}
                     <TableRow key="Link">
                         <TableCell component="th" scope="row">
-                            Link:
+                            <b>Link:</b>
                         </TableCell>
                         <TableCell align="right">
                             <IconButton 
