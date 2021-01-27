@@ -37,7 +37,7 @@ const Login: FC = () => {
           </CardContent>
           <CardActions style={{justifyContent: 'center'}}>
             <Button
-              variant="text"
+              variant="contained"
               size="large"
               color="primary"
               onClick={() => 

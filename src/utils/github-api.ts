@@ -41,16 +41,4 @@ function getUserOrgs(username: string) {
   return axios.get<TOrgList>(url).then(response => response.data);
 }
 
-// function getUserData(username: string) {
-//   return axios
-//     .all([
-//       axios.get<UserInfo>(`${BASE_URL}/users/${username}`),
-//       axios.get<TOrgList>(`${BASE_URL}/users/${username}/orgs`)
-//     ])
-//     .then(([user, orgs]) => ({
-//       user: user.data,
-//       orgs: orgs.data
-//     }));
-// }
-
 export { getRepos, getUserData, getUserOrgs };
